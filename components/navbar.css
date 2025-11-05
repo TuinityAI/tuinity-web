@@ -1,0 +1,21 @@
+
+#navbar {
+  /* background-color: transparent; */
+  /* border-radius: 0 0 20px 20px; */
+  border-bottom: transparent 1px solid;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  backdrop-filter: blur(10px);
+  transition-duration: 400ms;
+  animation-timeline: scroll(nearest);
+  animation: fixed-top linear both;
+  animation-range: 0px 90px;
+}
+
+@keyframes fixed-top {
+  to {
+    background-color: var(--background-color);
+    border-bottom: 1px 1px solid;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+  }
+}
