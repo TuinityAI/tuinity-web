@@ -17,7 +17,9 @@ import { Menu } from "lucide-react";
 
 const sections = [
   { name: "Soluciones", href: "#solutions" },
+  { name: "Opciones", href: "#pricing" },
   { name: "Contacto", href: "#contact" },
+  { name: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -58,13 +60,15 @@ export function Navbar() {
               <SheetFooter>
                 <div className="flex gap-2">
                   <ThemeToggle />
-                  <Button className="grow">Agendar</Button>
+                  <Link href="#contact">
+                    <Button className="grow">Agendar</Button>
+                  </Link>
                 </div>
               </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden md:flex items-center space-x-4">
           <SliderElementArea fallback="hide">
             {sections.map((section) => (
               <Link
@@ -77,7 +81,9 @@ export function Navbar() {
             ))}
           </SliderElementArea>
           <ThemeToggle />
-          <Button>Agendar</Button>
+          <Link href="#contact">
+            <Button>Agendar</Button>
+          </Link>
         </div>
       </nav>
     </header>

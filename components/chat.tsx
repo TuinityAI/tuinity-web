@@ -8,7 +8,7 @@ export function ChatButton() {
     <Tooltip>
       <Link href="https://wa.me/50768497142" target="_blank">
         <TooltipTrigger asChild>
-          <Button size="icon-lg" className="right-0 bottom-0 fixed mr-8 mb-8">
+          <Button size="icon-lg" className="right-0 bottom-0 z-50 fixed mr-8 mb-8 cursor-pointer">
             <MessageSquare />
           </Button>
         </TooltipTrigger>

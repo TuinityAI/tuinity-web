@@ -1,0 +1,210 @@
+.receptionistSection {
+  background: radial-gradient(
+    125% 125% at 50% 10%,
+    #000000 40%,
+    rgba(222, 254, 255, 0.1) 100%
+  );
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.receptionistSection::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(222, 254, 255, 0.05) 0%,
+    rgba(248, 240, 252, 0.03) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(90px);
+}
+
+.receptionistContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.receptionistHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.receptionistTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.receptionistSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.orbWrapper {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.micButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid rgba(222, 254, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 2.5rem;
+  color: black;
+  /* box-shadow: 0 4px 20px rgba(222, 254, 255, 0.3); */
+}
+
+.micButton:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  /* box-shadow: 0 8px 30px rgba(222, 254, 255, 0.4); */
+  filter: brightness(1.1);
+}
+
+.micButton:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.micButtonActive {
+  background: rgba(239, 68, 68, 0.9);
+  border-color: rgba(239, 68, 68, 0.5);
+  animation: pulse-red 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(239, 68, 68, 0.6);
+  }
+}
+
+.timer {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(222, 254, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(222, 254, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #defeff;
+  letter-spacing: 0.05em;
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .receptionistSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .receptionistHeader {
+    margin-bottom: 3rem;
+  }
+
+  .receptionistTitle {
+    font-size: 2.5rem;
+  }
+
+  .receptionistSubtitle {
+    font-size: 1rem;
+  }
+
+  .orbWrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .micButton {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .timer {
+    bottom: -45px;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .receptionistTitle {
+    font-size: 2rem;
+  }
+
+  .orbWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .micButton {
+    width: 60px;
+    height: 60px;
+    font-size: 1.75rem;
+  }
+
+  .timer {
+    bottom: -40px;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
