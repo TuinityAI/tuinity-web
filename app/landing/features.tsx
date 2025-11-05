@@ -62,9 +62,9 @@ export function Features() {
         className="relative flex flex-col justify-center items-center py-24 w-full"
       >
         {" "}
-        <div className="absolute">
-          <div className="-z-10 relative bg-black! w-full h-full">
-            <div className="bg-black w-screen h-screen"></div>
+        <div className="absolute h-full">
+          <div className="-z-10 relative bg-black! w-full h-full min-h-screen">
+            <div className="bg-black w-screen h-full min-h-screen"></div>
             <div className="top-0 right-0 bottom-0 left-0 absolute bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[14px_24px]"></div>
             <div className="top-[10%] right-[20%] absolute bg-[radial-gradient(circle_200px_at_50%_50%,#fbfbfb20,transparent)] rounded-full w-[400px] h-[400px]"></div>
             <div className="top-[60%] left-[15%] absolute bg-[radial-gradient(circle_150px_at_50%_50%,#fbfbfb15,transparent)] rounded-full w-[300px] h-[300px]"></div>

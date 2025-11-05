@@ -16,9 +16,8 @@ import {
 import { Menu } from "lucide-react";
 
 const sections = [
-  { name: "Features", href: "#features" },
   { name: "Soluciones", href: "#solutions" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Contacto", href: "#contact" },
 ];
 
 export function Navbar() {
