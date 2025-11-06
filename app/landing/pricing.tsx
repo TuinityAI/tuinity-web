@@ -60,7 +60,9 @@ export function Pricing() {
         />
       </div>
       <div className="flex flex-col justify-center items-center mx-auto my-16 py-8 border-t border-b w-full max-w-3xl">
-        <h2 className="text-4xl text-center">Encuentra el plan perfecto para tu negocio</h2>
+        <h2 className="text-4xl text-center">
+          Encuentra el plan perfecto para tu negocio
+        </h2>
         <p className="my-3 mb-12 text-muted-foreground text-center">
           Escoge entre nuestras opciones de precios flexibles la que se adapte a
           las necesidades de tu negocio.
@@ -77,10 +79,20 @@ export function Pricing() {
                 {option.title}
               </h3>
               <div className="flex flex-col">
-                <div className="font-bold text-4xl" aria-label="price" title={option.price as string}>
+                <div
+                  className="font-bold text-4xl"
+                  aria-label="price"
+                  title={option.price as unknown as string}
+                >
                   {option.price ? (
                     <>
-                      <Countup delay={3000} from={0} to={option.price} direction="up" />$
+                      <Countup
+                        delay={3}
+                        from={0}
+                        to={option.price}
+                        direction="up"
+                      />
+                      $
                     </>
                   ) : (
                     "Custom"
@@ -97,7 +109,10 @@ export function Pricing() {
                   {option.price ? option.price + 50 + "$" : "Custom pricing"}
                 </span>
               </div>
-              <Button variant="outline" className="mt-8 border-foreground! rounded-sm w-full">
+              <Button
+                variant="outline"
+                className="mt-8 border-foreground! rounded-sm w-full"
+              >
                 Contactar
               </Button>
 
@@ -105,7 +120,9 @@ export function Pricing() {
                 <p>{option.description}</p>
 
                 {option.feats.map((feat) => (
-                  <p key={feat} className="text-foreground">✓ {feat}</p>
+                  <p key={feat} className="text-foreground">
+                    ✓ {feat}
+                  </p>
                 ))}
               </div>
             </div>

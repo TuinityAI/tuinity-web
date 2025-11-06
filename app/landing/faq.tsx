@@ -15,6 +15,7 @@ export function Faq() {
       className="flex flex-wrap justify-center items-center gap-24 bg-linear-to-b from-[#0F0F0F] to-black pt-24 w-full"
     >
       <div className="flex flex-col justify-center items-center">
+        <h3>Tienes dudas, resuélvelas</h3>
         <div className="relative flex justify-center items-center grayscale-100 size-70">
           <Receptionist />
           <div className="absolute size-full">

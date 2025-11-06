@@ -119,4 +119,7 @@
   body {
     @apply bg-background overflow-x-hidden text-foreground;
   }
+  main {
+    @apply max-w-dvw;
+  }
 }

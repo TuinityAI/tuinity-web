@@ -60,8 +60,8 @@ export function Navbar() {
               <SheetFooter>
                 <div className="flex gap-2">
                   <ThemeToggle />
-                  <Link href="#contact">
-                    <Button className="grow">Agendar</Button>
+                  <Link className="grow" href="#contact">
+                    <Button>Agendar</Button>
                   </Link>
                 </div>
               </SheetFooter>
