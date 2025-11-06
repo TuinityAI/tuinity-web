@@ -15,7 +15,7 @@ export default function Receptionist() {
   const countdownIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Initialize Vapi with public API key
+    // TODO: Migrate to .env keys
     const vapi = new Vapi("6a7a08c9-4c60-4a3a-9956-ea70ad3f99d4");
     vapiRef.current = vapi;
 
@@ -151,6 +151,7 @@ export default function Receptionist() {
 
         // Start the call with your assistant ID
         const result = vapiRef.current.start(
+          // TODO: migrate to .env keys
           "032fe163-0396-406b-ac75-1d0c921d8c06"
         );
         console.log("Start call result:", result);

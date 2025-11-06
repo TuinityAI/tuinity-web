@@ -89,7 +89,7 @@ export function Solutions() {
               initial={{ zoom: 0.95, opacity: 0 }}
               whileInView={{ zoom: 1, opacity: 1 }}
               key={feat.title}
-              className="group relative bg-card/40 hover:shadow-accent backdrop-blur-2xl p-4 border hover:border-accent rounded-lg md:max-w-sm overflow-hidden hover:scale-[1.02] transition-all"
+              className="group relative bg-card/40 hover:shadow-accent p-4 border hover:border-accent rounded-lg md:max-w-sm overflow-hidden hover:scale-[1.02] transition-all"
             >
               <div className="bottom-0 left-0 absolute opacity-10 group-hover:opacity-24 rotate-24 duration-400">
                 <Slot className="size-24">{feat.icon}</Slot>

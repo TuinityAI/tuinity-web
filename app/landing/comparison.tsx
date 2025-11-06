@@ -44,8 +44,8 @@ export function Comparison() {
         Compara las desventajas del trabajo manual con las ventajas de nuestra
         consultoría impulsada por IA.
       </p>
-      <div className="flex flex-wrap justify-center items-start gap-8 mx-auto mt-12 relative z-10">
-        {comparisonData.map((card) => (
+      <div className="flex md:flex-row-reverse flex-wrap justify-center items-start gap-8 mx-auto mt-12 relative z-10">
+        {comparisonData.toReversed().map((card) => (
           <div
             key={card.side}
             className={

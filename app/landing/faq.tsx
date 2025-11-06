@@ -15,7 +15,16 @@ export function Faq() {
       className="flex flex-col justify-center items-center gap-8 bg-gradient-to-b from-[#0F0F0F] to-black pt-24 pb-24 w-full"
     >
       <div className="flex flex-col justify-center items-center">
-        <h3 className="font-glitz">Preguntas Frecuentes</h3>
+        <div className="relative flex justify-center items-center grayscale-100 size-70">
+          <Receptionist />
+          <div className="absolute size-full">
+            <Orb />
+          </div>
+        </div>
+      </div>
+      <hr className="hidden md:block bg-border w-px h-100" />
+      <div className="flex flex-col justify-center items-center mt-8">
+        <h3 className="font-glitz">Frequently Answered Questions</h3>
         <Accordion type="single" collapsible className="w-80 md:w-96">
           <AccordionItem value="item-1">
             <AccordionTrigger>¿Qué es Tuinity?</AccordionTrigger>
