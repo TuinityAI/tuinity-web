@@ -1,4 +1,5 @@
-import Orb from "@/components/Orb";
+"use client";
+
 import * as motion from "motion/react-client";
 import {
   Accordion,
@@ -6,25 +7,15 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import Receptionist from "@/components/recepcionist";
 
 export function Faq() {
   return (
     <motion.section
       id="faq"
-      className="flex flex-wrap justify-center items-center gap-24 bg-linear-to-b from-[#0F0F0F] to-black pt-24 w-full"
+      className="flex flex-col justify-center items-center gap-8 bg-gradient-to-b from-[#0F0F0F] to-black pt-24 pb-24 w-full"
     >
       <div className="flex flex-col justify-center items-center">
-        <div className="relative flex justify-center items-center grayscale-100 size-70">
-          <Receptionist />
-          <div className="absolute size-full">
-            <Orb />
-          </div>
-        </div>
-      </div>
-      <hr className="hidden md:block bg-border w-px h-100" />
-      <div className="flex flex-col justify-center items-center mt-8">
-        <h3 className="font-glitz">Frequently Answered Questions</h3>
+        <h3 className="font-glitz">Preguntas Frecuentes</h3>
         <Accordion type="single" collapsible className="w-80 md:w-96">
           <AccordionItem value="item-1">
             <AccordionTrigger>¿Qué es Tuinity?</AccordionTrigger>

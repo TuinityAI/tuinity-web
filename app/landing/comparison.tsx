@@ -4,24 +4,27 @@ import LightRays from "@/components/LightRays";
 const comparisonData = [
   {
     side: "manual",
-    title: "Trabajo manual",
+    title: (
+      <>
+        Sin <span className="font-glitz">Tuinity</span>
+      </>
+    ),
     points: [
-      "Propenso a errores humanos",
-      "Limitado por horarios de trabajo",
-      "Costos altos y overhead",
-      "Tareas lentas y tediosas",
-      "Dependencia del equipo",
+      "Tareas repetitivas que consumen tiempo todos los días",
+      "Leads sin seguimiento = oportunidades perdidas",
+      "Procesos desconectados entre equipos y herramientas",
+      "Dependes de personas para que todo funcione",
     ],
   },
   {
     side: "tuinity",
     title: "Nuestra Consultoría",
     points: [
-      "Decisiones impulsadas por IA",
-      "Automatización 24/7",
-      "Escalable y rentable",
-      "Procesamiento de datos instantáneo",
-      "Resultados consistentes y confiables",
+      "Sistemas personalizados para tu negocio",
+      "Soporte estratégico en ventas, marketing y atención",
+      "Integración con tus herramientas del día a día",
+      "Implementación guiada y acompañamiento real",
+      "Aprende a aplicar IA sin ser técnico",
     ],
   },
 ];
@@ -31,28 +34,30 @@ export function Comparison() {
     <motion.section
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      className="relative bg-linear-to-b from-black via-[#050505] to-black mx-auto md:py-16 max-w-4xl"
+      className="relative bg-gradient-to-b from-[#050505] via-[#030303] to-black mx-auto pt-8 md:pt-16 pb-16 md:pb-24 max-w-4xl"
     >
-      <h2 className="mb-4 text-4xl text-center">
+
+      <h2 className="mb-4 text-4xl text-center relative z-10">
         ¿Por qué elegir <span className="font-glitz">Tuinity</span>?
       </h2>
-      <p className="text-muted-foreground text-center">
+      <p className="text-muted-foreground text-center relative z-10">
         Compara las desventajas del trabajo manual con las ventajas de nuestra
         consultoría impulsada por IA.
       </p>
-      <div className="flex flex-wrap justify-center items-start gap-8 mx-auto mt-12">
+      <div className="flex flex-wrap justify-center items-start gap-8 mx-auto mt-12 relative z-10">
         {comparisonData.map((card) => (
           <div
             key={card.side}
             className={
               card.side === "manual"
-                ? "opacity-90 p-8 border rounded-lg w-80 h-80"
-                : "relative shadow-foreground/5 backdrop-blur-2xl shadow-lg p-8 border-foreground border rounded-md w-80 h-80 overflow-hidden scale-110"
+                ? "opacity-90 p-6 border rounded-lg w-80"
+                : "relative shadow-foreground/5 backdrop-blur-2xl shadow-lg p-6 border-foreground border rounded-md w-80 overflow-hidden scale-110"
             }
+            style={card.side === "tuinity" ? { background: 'linear-gradient(90deg, rgba(222, 254, 255, 0.25) 0%, rgba(222, 254, 255, 0.1) 50%, #000000 100%)' } : undefined}
           >
             {card.side === "tuinity" && (
               <div className="-z-10 absolute inset-0 size-full">
-                <LightRays />
+                <LightRays raysColor="#defeff" />
               </div>
             )}
             <h3
@@ -65,7 +70,7 @@ export function Comparison() {
               {card.title}
             </h3>
             <hr />
-            <ul className="space-y-3 mt-6 text-sm">
+            <ul className={card.side === "manual" ? "space-y-4 mt-6 text-sm" : "space-y-3 mt-6 text-sm"}>
               {card.points.map((point, idx) => {
                 const text = point;
                 const icon = card.side === "manual" ? "✕" : "✓";

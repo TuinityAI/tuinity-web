@@ -1,0 +1,499 @@
+.clientsSection {
+  background: radial-gradient(
+    125% 125% at 50% 10%,
+    #000000 40%,
+    rgba(222, 254, 255, 0.12) 100%
+  );
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-inter), sans-serif;
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: var(--font-inter), sans-serif;
+  text-align: center;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Slider Container */
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.sliderBtn {
+  background: var(--tuinity-celeste-badge);
+  border: 1px solid rgba(222, 254, 255, 0.3);
+  color: var(--tuinity-dark-text);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 300;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(222, 254, 255, 0.2);
+}
+
+.sliderBtn:hover {
+  background: #defeff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(222, 254, 255, 0.4);
+}
+
+.sliderBtn:active {
+  transform: scale(0.95);
+}
+
+.casesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  flex: 1;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caseCard {
+  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.paginationDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(222, 254, 255, 0.3);
+  border: 1px solid rgba(222, 254, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.paginationDot:hover {
+  background: rgba(222, 254, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.paginationDot.active {
+  background: #defeff;
+  width: 28px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(222, 254, 255, 0.4);
+}
+
+/* Case Cards */
+.caseCard {
+  background: linear-gradient(135deg, rgba(50, 50, 55, 0.35) 0%, rgba(25, 25, 30, 0.55) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 14px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Company Header */
+.caseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.companyLogo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background-color: rgba(222, 254, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(222, 254, 255, 0.3);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(222, 254, 255, 0.2);
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.companyName {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.industry {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.78rem;
+  color: #defeff;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Sections */
+.section {
+  display: none;
+}
+
+.sectionTitle {
+  display: none;
+}
+
+.sectionText {
+  display: none;
+}
+
+/* Results Section */
+.resultsSection {
+  grid-area: metrics;
+  background: linear-gradient(135deg, rgba(222, 254, 255, 0.12) 0%, rgba(222, 254, 255, 0.06) 100%);
+  border: 1px solid rgba(222, 254, 255, 0.25);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.resultsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(222, 254, 255, 0.4), transparent);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.metric {
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: rgba(222, 254, 255, 0.08);
+  border: 1px solid rgba(222, 254, 255, 0.2);
+}
+
+.metricValue {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #defeff;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.metricLabel {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.3;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/* Testimonial */
+.testimonial {
+  background: linear-gradient(135deg, rgba(222, 254, 255, 0.08) 0%, rgba(222, 254, 255, 0.03) 100%);
+  border-left: 3px solid #defeff;
+  padding: 1.1rem 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  border: 1px solid rgba(222, 254, 255, 0.15);
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 2.5rem;
+  color: rgba(222, 254, 255, 0.2);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonialText {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.authorAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(222, 254, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 2px solid rgba(222, 254, 255, 0.3);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(222, 254, 255, 0.25);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.authorName {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.authorRole {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72rem;
+  color: #defeff;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .casesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sliderBtn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .clientsSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .caseCard {
+    padding: 1.1rem;
+    gap: 0.75rem;
+  }
+
+  .companyLogo {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+
+  .companyName {
+    font-size: 0.88rem;
+  }
+
+  .industry {
+    font-size: 0.68rem;
+  }
+
+  .resultsSection {
+    padding: 1rem;
+  }
+
+  .metricsGrid {
+    gap: 0.5rem;
+  }
+
+  .metric {
+    padding: 0.4rem;
+  }
+
+  .metricValue {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .metricLabel {
+    font-size: 0.62rem;
+  }
+
+  .testimonial {
+    padding: 0.9rem 1rem;
+    gap: 0.65rem;
+  }
+
+  .testimonialText {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .authorAvatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+
+  .authorName {
+    font-size: 0.72rem;
+  }
+
+  .authorRole {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clientsSection {
+    padding: 2.5rem 1rem;
+  }
+
+  .caseCard {
+    padding: 0.95rem;
+    gap: 0.65rem;
+  }
+
+  .companyLogo {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .companyName {
+    font-size: 0.82rem;
+  }
+
+  .industry {
+    font-size: 0.64rem;
+  }
+
+  .resultsSection {
+    padding: 0.85rem;
+  }
+
+  .metric {
+    padding: 0.35rem;
+  }
+
+  .metricValue {
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .metricLabel {
+    font-size: 0.58rem;
+  }
+
+  .testimonial {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .testimonialText {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .authorAvatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.65rem;
+  }
+
+  .authorName {
+    font-size: 0.68rem;
+  }
+
+  .authorRole {
+    font-size: 0.58rem;
+  }
+}

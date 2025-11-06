@@ -39,7 +39,7 @@ export function Footer() {
           </li>
         ))}
       </ul>
-      <div className="mx-auto text-muted-foreground text-center container">
+      <div className="mx-auto text-muted-foreground text-center text-sm container">
         © 2025 Tuinity. Todos los derechos reservados.
       </div>
       <motion.span
@@ -48,7 +48,7 @@ export function Footer() {
         transition={{ duration: 1, delay: 0.5 }}
         className="bottom-2 -z-10 absolute bg-clip-text bg-linear-to-t from-transparent to-foreground opacity-10 font-glitz text-9xl text-clip whitespace-nowrap select-none"
       >
-        Tuinity AI
+        Tuinity IA
       </motion.span>
     </footer>
   );

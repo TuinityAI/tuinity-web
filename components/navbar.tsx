@@ -16,7 +16,7 @@ import {
 import { Menu } from "lucide-react";
 
 const sections = [
-  { name: "Soluciones", href: "#solutions" },
+  { name: "Productos", href: "#products" },
   { name: "Opciones", href: "#pricing" },
   { name: "Contacto", href: "#contact" },
   { name: "FAQ", href: "#faq" },
