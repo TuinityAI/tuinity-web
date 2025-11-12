@@ -150,6 +150,22 @@
   }
 }
 
+/* Audio waveform animation for listening state */
+@keyframes audioWaveform {
+  0%, 100% {
+    transform: scaleY(0.6);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.audioListening {
+  animation: audioWaveform 0.8s ease-in-out infinite;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .receptionistSection {
