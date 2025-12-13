@@ -1,11 +1,10 @@
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import { SiWhatsapp, SiGithub, SiInstagram } from "react-icons/si";
+import { SiWhatsapp, SiGithub, SiInstagram, SiTiktok } from "react-icons/si";
 
-// TODO: Fix icons to standard, not AI generated
-const media = [
+export const media = [
   {
-    href: "https://wa.me/50768497142",
+    href: "https://wa.me/50763469953",
     label: "WhatsApp",
     icon: <SiWhatsapp className="size-6" />,
   },
@@ -15,9 +14,14 @@ const media = [
     icon: <SiGithub className="size-6" />,
   },
   {
-    href: "https://instagram.com/tuinity",
+    href: "https://instagram.com/tuinity.lat",
     label: "Instagram",
     icon: <SiInstagram className="size-6" />,
+  },
+  {
+    href: "https://www.tiktok.com/@tuinitylat",
+    label: "TikTok",
+    icon: <SiTiktok className="size-6" />,
   },
 ];
 

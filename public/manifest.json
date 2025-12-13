@@ -1,0 +1,14 @@
+{
+  "name": "Tuinity AI",
+  "short_name": "Tuinity",
+  "description": "Agencia de Inteligencia Artificial en Panamá. Automatiza tus ventas con agentes de IA conversacionales.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#defeff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "technology"],
+  "lang": "es",
+  "dir": "ltr",
+  "scope": "/"
+}

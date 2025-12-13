@@ -4,24 +4,24 @@ import LightRays from "@/components/LightRays";
 const comparisonData = [
   {
     side: "manual",
-    title: "Trabajo manual",
+    title: "Sin Tuinity",
     points: [
-      "Propenso a errores humanos",
-      "Limitado por horarios de trabajo",
-      "Costos altos y overhead",
-      "Tareas lentas y tediosas",
-      "Dependencia del equipo",
+      "Tareas repetitivas que consumen tiempo todos los días",
+      "Leads sin seguimiento = oportunidades perdidas",
+      "Procesos desconectados entre equipos y herramientas",
+      "Dependes de personas para que todo funcione",
+      "Escalar significa más trabajo, no más resultados",
     ],
   },
   {
     side: "tuinity",
-    title: "Nuestra Consultoría",
+    title: "Con Tuinity",
     points: [
-      "Decisiones impulsadas por IA",
-      "Automatización 24/7",
-      "Escalable y rentable",
-      "Procesamiento de datos instantáneo",
-      "Resultados consistentes y confiables",
+      "Sistemas personalizados para tu negocio",
+      "Soporte estratégico en ventas, marketing y atención",
+      "Integración con tus herramientas del día a día",
+      "Implementación guiada y acompañamiento real",
+      "Aprendé a aplicar IA sin ser técnico",
     ],
   },
 ];
@@ -30,10 +30,11 @@ export function Comparison() {
   return (
     <motion.section
       initial={{ y: 50, opacity: 0 }}
+      transition={{ duration: 1, delay: 0.5 }}
       whileInView={{ y: 0, opacity: 1 }}
       className="relative bg-linear-to-b from-black via-[#050505] to-black mx-auto md:py-16 max-w-4xl"
     >
-      <h2 className="mb-4 text-4xl text-center">
+      <h2 className="mb-4 text-5xl text-center">
         ¿Por qué elegir <span className="font-glitz">Tuinity</span>?
       </h2>
       <p className="text-muted-foreground text-center">
@@ -46,8 +47,8 @@ export function Comparison() {
             key={card.side}
             className={
               card.side === "manual"
-                ? "opacity-90 p-8 border rounded-lg w-80 h-80"
-                : "relative shadow-foreground/5 backdrop-blur-2xl shadow-lg p-8 border-foreground border rounded-md w-80 h-80 overflow-hidden scale-110"
+                ? "opacity-90 p-8 border rounded-lg w-80"
+                : "relative border-primary bg-linear-to-b from-transparent to-primary/20 via-transparent shadow-foreground/5 backdrop-blur-2xl shadow-lg p-8 border rounded-md w-80 overflow-hidden scale-110"
             }
           >
             {card.side === "tuinity" && (
@@ -59,7 +60,7 @@ export function Comparison() {
               className={
                 card.side === "manual"
                   ? "text-xl mb-4"
-                  : "mb-4 font-bold text-2xl"
+                  : "mb-4 font-bold text-2xl text-primary"
               }
             >
               {card.title}
@@ -74,12 +75,12 @@ export function Comparison() {
                 const textColor =
                   card.side === "manual"
                     ? "text-muted-foreground"
-                    : "text-foreground";
+                    : "text-primary";
 
                 return (
                   <li key={idx} className="flex items-start gap-2">
                     <span className={`mt-0.5 font-bold`}>{icon}</span>
-                    <span className="text-muted-foreground">{text}</span>
+                    <span className={`text-muted-foreground ${textColor}`}>{text}</span>
                   </li>
                 );
               })}

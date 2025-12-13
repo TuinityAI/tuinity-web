@@ -58,6 +58,7 @@ export function Solutions() {
       <motion.section
         id="solutions"
         initial={{ y: 50, opacity: 0 }}
+        transition={{ duration: 2.5, delay: 0.5 }}
         whileInView={{ y: 0, opacity: 1 }}
         className="relative flex flex-col justify-center items-center py-8 md:py-24 w-full"
       >
@@ -72,8 +73,8 @@ export function Solutions() {
             <div className="bottom-[40%] left-[40%] absolute bg-[radial-gradient(circle_100px_at_50%_50%,#fbfbfb10,transparent)] rounded-full w-[200px] h-[200px]"></div>
           </div>
         </div>
-        <h2 className="max-w-3xl text-3xl text-center">
-          La IA no es solo una herramienta,{" "}
+        <h2 className="max-w-3xl text-primary text-3xl text-center">
+          La <span className="font-glitz">IA</span> no es solo una herramienta,{" "}
           <span className="font-bold">
             es la nueva infrastructura de los negocios.
           </span>
@@ -88,13 +89,14 @@ export function Solutions() {
             <motion.div
               initial={{ zoom: 0.95, opacity: 0 }}
               whileInView={{ zoom: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
               key={feat.title}
-              className="group relative bg-card/40 hover:shadow-accent p-4 border hover:border-accent rounded-lg md:max-w-sm overflow-hidden hover:scale-[1.02] transition-all"
+              className="group relative bg-card/40 hover:shadow-accent p-4 border border-primary rounded-lg md:max-w-sm overflow-hidden hover:scale-[1.02] transition-all"
             >
               <div className="bottom-0 left-0 absolute opacity-10 group-hover:opacity-24 rotate-24 duration-400">
                 <Slot className="size-24">{feat.icon}</Slot>
               </div>
-              <h3 className="mb-8 font-bold text-2xl">{feat.title}</h3>
+              <h3 className="mb-8 font-glitz text-2xl">{feat.title}</h3>
               <p className="max-w-xl text-muted-foreground">
                 {feat.description}
               </p>

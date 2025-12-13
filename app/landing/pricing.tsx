@@ -1,132 +1,124 @@
 import * as motion from "motion/react-client";
-import Countup from "@/components/CountUp";
 import { Button } from "@/components/ui/button";
 import Particles from "@/components/Particles";
+import { Phone, MessageCircle, Radio } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
-const options: {
+const products: {
   title: string;
-  price?: number;
+  icon: LucideIcon;
   description: string;
   feats: string[];
+  cta: string;
 }[] = [
   {
-    title: "Apple",
-    price: 250,
+    title: "Tuinity Voice Agent",
+    icon: Phone,
     description:
-      "Ideal para pequeñas empresas que buscan iniciar su viaje con IA.",
+      "Convierte llamadas en oportunidades sin intervención humana. Nuestros agentes de voz entrenados escuchan, entienden, responden y agendan por ti — como un recepcionista, pero disponible 24/7, con memoria y sin errores.",
     feats: [
-      "Automatización básica de tareas",
-      "Chatbot estándar",
-      "Soporte limitado",
+      "Llamadas salientes con voz natural",
+      "Agendado automático conectado a tu calendario",
+      "Entrenamiento adaptado a tu negocio",
+      "Integración con WhatsApp, CRM y formularios",
     ],
+    cta: "Solicitar demo",
   },
   {
-    title: "Apple+",
-    price: 450,
-    description: "Para empresas en crecimiento que necesitan más recursos.",
+    title: "Tuinity Chat Agent",
+    icon: MessageCircle,
+    description:
+      "Automatizá tu atención al cliente o ventas por WhatsApp con un agente personalizado. Responde mensajes, califica leads, agenda citas o resuelve dudas sin necesidad de un equipo humano detrás. Flujo inteligente, integrado y disponible en segundos.",
     feats: [
-      "Automatización avanzada de tareas",
-      "Chatbot personalizado",
-      "Análisis de datos",
+      "Respuestas automáticas con lógica condicional",
+      "Seguimiento y agendado dentro de WhatsApp",
+      "Integración con CRM, Sheets o bases de datos",
+      "Entrenamiento personalizado por tipo de cliente",
     ],
+    cta: "Solicitar demo",
   },
   {
-    title: "PaperProject",
-    description: "Una solución personalizada para tus necesidades específicas.",
+    title: "Tuinity Broadcast",
+    icon: Radio,
+    description:
+      "Enviá mensajes masivos segmentados por WhatsApp con alta tasa de apertura. Diseñado para campañas, promociones o notificaciones a gran escala. Manda un solo mensaje que impacte a miles de personas al instante, con seguimiento y métricas.",
     feats: [
-      "Soluciones a medida",
-      "Integraciones avanzadas",
-      "Soporte prioritario",
+      "Envío a más de 5,000 contactos por campaña",
+      "Segmentación por etiquetas, historial o interés",
+      "Reportes de apertura y conversión",
+      "Integración con tu stack de marketing",
     ],
+    cta: "Solicitar demo",
   },
 ];
 
 export function Pricing() {
   return (
     <motion.section
-      id="pricing"
+      id="products"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      className="relative bg-linear-to-b from-transparent via-transparent to-[#0F0F0F] py-8 md:py-32"
+      className="relative py-8 md:py-32"
     >
       <div className="-z-10 absolute size-full">
         <Particles
           className="opacity-40 size-full"
           particleColors={["#ffffff", "#ffffff"]}
-          particleCount={300}
+          particleCount={500}
           particleSpread={10}
           speed={0.1}
           particleBaseSize={100}
         />
       </div>
-      <div className="flex flex-col justify-center items-center mx-auto my-16 py-8 border-t border-b w-full max-w-3xl">
-        <h2 className="text-4xl text-center">
-          Encuentra el plan perfecto para tu negocio
+      <div className="flex flex-col justify-center items-center mx-auto my-16 py-8 border-t border-b w-full max-w-6xl">
+        <h2 className="font-glitz text-primary text-4xl text-center">
+          Nuestras Soluciones
         </h2>
         <p className="my-3 mb-12 text-muted-foreground text-center">
-          Escoge entre nuestras opciones de precios flexibles la que se adapte a
-          las necesidades de tu negocio.
+          Desde atención por voz, WhatsApp o mensajes masivos: todo lo que
+          necesitas para operar como una empresa del futuro, hoy.
         </p>
-        <div className="flex flex-wrap justify-center items-start gap-6 w-full">
-          {options.map((option, index) => (
-            <div
-              key={option.title}
-              className={`inline-block bg-linear-to-b from-card/60 to-transparent mb-6 p-6 border-foreground border-t md:w-60 hover:bg-card/60 duration-400 ${
-                index === 1 ? "scale-110 z-10" : ""
-              }`}
-            >
-              <h3 className="mb-4 font-glitz font-light text-xl">
-                {option.title}
-              </h3>
-              <div className="flex flex-col">
-                <div
-                  className="font-bold text-4xl"
-                  aria-label="price"
-                  title={option.price as unknown as string}
-                >
-                  {option.price ? (
-                    <>
-                      <Countup
-                        delay={3}
-                        from={0}
-                        to={option.price}
-                        direction="up"
-                      />
-                      $
-                    </>
-                  ) : (
-                    "Custom"
-                  )}
-                  <span className="font-normal text-muted-foreground text-xl">
-                    /mo
-                  </span>
-                </div>
-                <span
-                  className={`text-muted-foreground text-xl ${
-                    option.price ? "line-through" : ""
-                  }`}
-                >
-                  {option.price ? option.price + 50 + "$" : "Custom pricing"}
-                </span>
-              </div>
-              <Button
-                variant="outline"
-                className="mt-8 border-foreground! rounded-sm w-full"
+        <div className="flex flex-wrap justify-center items-stretch gap-6 w-full">
+          {products.map((product, index) => {
+            const Icon = product.icon;
+            return (
+              <div
+                key={product.title}
+                className={`inline-block bg-linear-to-b from-card/60 to-transparent mb-6 p-6 border-primary border-t md:w-90 hover:bg-card/60 duration-400 ${
+                  index === 1 ? "scale-105 z-10" : ""
+                }`}
               >
-                Contactar
-              </Button>
+                <div className="flex items-center gap-3 mx-auto mb-4 text-primary">
+                  <Icon className="w-8 h-8" />
+                  <h3 className="font-glitz font-light text-xl">
+                    {product.title}
+                  </h3>
+                </div>
 
-              <div className="mt-4 text-muted-foreground text-xs">
-                <p>{option.description}</p>
+                <p className="mb-6 text-muted-foreground text-sm leading-relaxed">
+                  {product.description}
+                </p>
 
-                {option.feats.map((feat) => (
-                  <p key={feat} className="text-foreground">
-                    ✓ {feat}
-                  </p>
-                ))}
+                <div className="space-y-2 mb-6">
+                  <p className="font-semibold text-sm">Funciones destacadas:</p>
+                  {product.feats.map((feat) => (
+                    <p key={feat} className="text-foreground text-sm">
+                      ✓ {feat}
+                    </p>
+                  ))}
+                </div>
+                <Link href="#contact" className="w-full cursor-pointer">
+                  <Button
+                    variant="outline"
+                    className="mt-auto border-primary! rounded-sm w-full"
+                  >
+                    {product.cta}
+                  </Button>
+                </Link>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </motion.section>
