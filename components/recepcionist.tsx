@@ -205,6 +205,7 @@ export default function Receptionist() {
             clearInterval(countdownIntervalRef.current);
             countdownIntervalRef.current = null;
           }
+
           if (callTimerRef.current) {
             clearTimeout(callTimerRef.current);
             callTimerRef.current = null;
@@ -221,21 +222,7 @@ export default function Receptionist() {
           return;
         }
 
-        console.log("🎤 [VAPI] Requesting microphone permission...");
         setCallStatus("connecting");
-
-        // Request microphone permission first
-        try {
-          await navigator.mediaDevices.getUserMedia({ audio: true });
-          console.log("✅ [VAPI] Microphone permission granted");
-        } catch (permError) {
-          console.error("❌ [VAPI] Microphone permission denied:", permError);
-          setCallStatus("idle");
-          alert(
-            "Por favor, permite el acceso al micrófono para usar esta función."
-          );
-          return;
-        }
 
         console.log(
           "📞 [VAPI] Starting call with assistant ID: 032fe163-0396-406b-ac75-1d0c921d8c06"
@@ -294,25 +281,25 @@ export default function Receptionist() {
         return {
           icon: <Radio className="animate-pulse" size={18} />,
           text: "Conectando...",
-          color: "#3b82f6",
+          color: "#defeff",
         };
       case "connected":
         return isSpeaking
           ? {
               icon: <AudioWaveform className="animate-pulse" size={18} />,
               text: "Hablando",
-              color: "#10b981",
+              color: "#defeff",
             }
           : {
               icon: <AudioLines className={styles.audioListening} size={18} />,
               text: "Escuchando",
-              color: "#8b5cf6",
+              color: "#8dd8e3",
             };
       case "ending":
         return {
           icon: <Loader2 className="animate-spin" size={18} />,
           text: "Finalizando...",
-          color: "#f59e0b",
+          color: "#b8f0f5",
         };
       default:
         return {
@@ -325,9 +312,9 @@ export default function Receptionist() {
 
   // Get timer color based on remaining time
   const getTimerColor = () => {
-    if (timeRemaining > 90) return "#10b981"; // green
-    if (timeRemaining > 30) return "#f59e0b"; // yellow
-    return "#ef4444"; // red
+    if (timeRemaining > 90) return "#defeff"; // cyan brand color
+    if (timeRemaining > 30) return "#f8d9a8"; // warm yellow
+    return "#ffa8a8"; // soft red
   };
 
   const statusBadge = getStatusBadge();
@@ -337,7 +324,7 @@ export default function Receptionist() {
       <Orb
         hoverIntensity={0.5}
         rotateOnHover={true}
-        hue={0}
+        hue={29}
         forceHoverState={isSpeaking}
       />
 
@@ -346,21 +333,22 @@ export default function Receptionist() {
         <div
           style={{
             position: "absolute",
-            top: "-60px",
+            top: "-45px",
             left: "50%",
             transform: "translateX(-50%)",
-            padding: "8px 16px",
+            padding: "6px 12px",
             borderRadius: "20px",
-            background: "rgba(255, 255, 255, 0.1)",
+            background: "rgba(222, 254, 255, 0.1)",
             backdropFilter: "blur(10px)",
-            border: `2px solid ${statusBadge.color}`,
+            border: `1.5px solid ${statusBadge.color}`,
             color: statusBadge.color,
-            fontSize: "14px",
+            fontSize: "13px",
             fontWeight: "600",
             display: "flex",
             alignItems: "center",
-            gap: "8px",
-            boxShadow: `0 4px 12px ${statusBadge.color}40`,
+            gap: "6px",
+            boxShadow: `0 2px 8px ${statusBadge.color}40`,
+            zIndex: 5,
           }}
         >
           {statusBadge.icon}
