@@ -1,13 +1,7 @@
 import { Coll } from "@/components/animations/collapse";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Bot, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import Link from "next/link";
 import Silk from "@/components/Silk";
-import Receptionist from "@/components/recepcionist";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -23,23 +17,10 @@ export function Hero() {
           <span className="font-glitz font-normal">Tuinity AI</span>
         </h1>
         <p className="max-w-3xl text-primary text-xl md:text-3xl text-center">
-          ¡Presiona el microfono de abajo para hablar con nuestro Agente de{" "}
-          <Tooltip delayDuration={500}>
-            <TooltipTrigger>
-              <span className="font-glitz">IA</span>
-            </TooltipTrigger>
-            <TooltipContent side="left">
-              <p className="inline-flex gap-2 text-sm">
-                Inteligencia Artificial <Bot className="size-5" />
-              </p>
-            </TooltipContent>
-          </Tooltip>{" "}
-          ahora mismo!
+          Automatiza tus ventas con nuestros Agentes de{" "}
+          <span className="font-glitz">IA</span>
         </p>
         <div className="flex flex-col items-center gap-8 my-6">
-          <div className="flex justify-center items-center rounded-4xl select-none greyscale-100">
-            <Receptionist />
-          </div>
           <Link href="#contact">
             <Button className="group flex justify-center items-center gap-2 py-6 font-semibold text-xl cursor-pointer">
               Agenda una llamada
