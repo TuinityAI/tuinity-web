@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const LINES = [
@@ -73,6 +74,19 @@ export function Hero2() {
               "radial-gradient(ellipse 82% 72% at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)",
           }}
         />
+
+        {/* Logo Tuinity en blanco, esquina superior izquierda */}
+        <div className="pointer-events-none absolute left-4 top-4 z-20 md:left-6 md:top-6">
+          <Image
+            src="/assets/quimera.svg"
+            alt="Tuinity"
+            width={1453}
+            height={1046}
+            priority
+            unoptimized
+            className="block h-auto w-7 select-none invert md:w-12"
+          />
+        </div>
 
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <h2

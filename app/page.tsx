@@ -1,4 +1,3 @@
-import { Hero } from "./landing/hero";
 import { Hero2 } from "./landing/hero2";
 import { ChatButton } from "@/components/chat";
 import { SoftwareServices } from "./landing/software";
@@ -9,7 +8,6 @@ import { Cta } from "./landing/cta";
 export default function Home() {
   return (
     <>
-      <Hero />
       <Hero2 />
       <SoftwareServices />
       <Cortex />
