@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Sans, Archivo } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "next-themes";
 import { Footer } from "@/components/footer";
 
@@ -12,9 +11,36 @@ const glitz = localFont({
   src: "../public/fonts/Glitz.ttf",
 });
 
+const grift = localFont({
+  variable: "--font-grift",
+  src: [
+    {
+      path: "../assets/fuentes-marca-tuinity/Grift-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../assets/fuentes-marca-tuinity/Grift-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../assets/fuentes-marca-tuinity/Grift-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+});
+
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
+});
+
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -27,12 +53,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  5;
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${notoSans.variable} ${glitz.variable} antialiased relative`}>
+      <body
+        className={`${notoSans.variable} ${glitz.variable} ${grift.variable} ${archivo.variable} antialiased relative`}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
           <main>{children}</main>
           <Footer />
         </ThemeProvider>

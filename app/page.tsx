@@ -1,23 +1,20 @@
 import { Hero } from "./landing/hero";
-import { Solutions } from "./landing/solutions";
-import { Contact } from "./landing/contact";
-import { Faq } from "./landing/faq";
+import { Hero2 } from "./landing/hero2";
 import { ChatButton } from "@/components/chat";
-import { Pricing } from "./landing/pricing";
-import { Comparison } from "./landing/comparison";
-import ClientsSection from "./landing/clients-section";
-import { Playground } from "./landing/playground";
+import { SoftwareServices } from "./landing/software";
+import { Cortex } from "./landing/cortex";
+import { Tech } from "./landing/tech";
+import { Cta } from "./landing/cta";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Playground />
-      <Comparison />
-      <Pricing />
-      <ClientsSection />
-      <Contact />
-      <Faq />
+      <Hero2 />
+      <SoftwareServices />
+      <Cortex />
+      <Tech />
+      <Cta />
       <ChatButton />
     </>
   );
