@@ -9,7 +9,7 @@ const grift = {
   fontWeight: 300,
 } as const;
 
-const WHATSAPP = "https://wa.me/50768497142";
+const WHATSAPP = "https://wa.me/50763469953";
 
 type Params = { params: Promise<{ slug: string }> };
 

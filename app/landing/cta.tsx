@@ -30,7 +30,7 @@ export function Cta() {
     <section className="bg-white py-20 md:py-28">
       <div className="gap-4 md:gap-6 grid grid-cols-1 md:grid-cols-2 mx-auto px-4 md:px-8 max-w-6xl">
         <Link
-          href="https://wa.me/50768497142"
+          href="https://wa.me/50763469953"
           target="_blank"
           rel="noopener noreferrer"
           className={cardClass}

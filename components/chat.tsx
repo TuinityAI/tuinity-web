@@ -13,7 +13,7 @@ function Corner({ className }: { className: string }) {
 export function ChatButton() {
   return (
     <Tooltip>
-      <Link href="https://wa.me/50768497142" target="_blank">
+      <Link href="https://wa.me/50763469953" target="_blank">
         <TooltipTrigger asChild>
           <span
             className="right-0 bottom-0 z-50 fixed mr-5 mb-5 flex items-center justify-center w-10 h-10 cursor-pointer transition-transform hover:scale-110 mix-blend-difference"

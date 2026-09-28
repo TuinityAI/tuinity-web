@@ -7,7 +7,7 @@ export const grift = {
   fontWeight: 300,
 } as const;
 
-export const WHATSAPP = "https://wa.me/50768497142";
+export const WHATSAPP = "https://wa.me/50763469953";
 
 export function Label({
   children,

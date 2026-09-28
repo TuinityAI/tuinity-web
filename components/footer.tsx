@@ -13,7 +13,7 @@ const products = PRODUCTS.map((p) => ({
   href: `/productos/${p.slug}`,
 }));
 
-const WHATSAPP = "https://wa.me/50768497142";
+const WHATSAPP = "https://wa.me/50763469953";
 
 const company = [
   { label: "Inicio", href: "/#hero" },
