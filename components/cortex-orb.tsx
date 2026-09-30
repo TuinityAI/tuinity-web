@@ -9,7 +9,8 @@
   API original conservada: setActive(bool), pulse(), setSpinning(bool).
 */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
 import * as THREE from "three";
 
 const VERT = /* glsl */ `
@@ -259,6 +260,38 @@ export function CortexOrb({
   className?: string;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"idle" | "playing" | "paused">("idle");
+
+  // Tocar el orbe arranca (o retoma) el audio de Cortex.
+  function play() {
+    const audio = audioRef.current;
+    if (audio && status !== "playing") audio.play();
+  }
+
+  function toggle() {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) audio.play();
+    else audio.pause();
+  }
+
+  // Barra de progreso fluida mientras suena.
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (status === "idle" && barRef.current)
+      barRef.current.style.transform = "scaleX(0)";
+    if (status !== "playing" || !audio) return;
+    let raf = 0;
+    const tick = () => {
+      if (barRef.current && audio.duration)
+        barRef.current.style.transform = `scaleX(${audio.currentTime / audio.duration})`;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [status]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -294,7 +327,50 @@ export function CortexOrb({
           filter: "blur(20px)",
         }}
       />
-      <div ref={hostRef} className="relative size-full cursor-pointer" />
+      <div
+        ref={hostRef}
+        onClick={play}
+        className="relative size-full cursor-pointer"
+      />
+
+      <audio
+        ref={audioRef}
+        src="/assets/AudioCortex.mp3"
+        preload="none"
+        onPlay={() => setStatus("playing")}
+        onPause={(e) => {
+          if (!e.currentTarget.ended) setStatus("paused");
+        }}
+        onEnded={() => setStatus("idle")}
+      />
+
+      <div
+        aria-hidden={status === "idle"}
+        className={`absolute top-full left-1/2 flex items-center gap-3 mt-4 md:mt-6 w-40 md:w-48 -translate-x-1/2 transition-opacity duration-300 ${
+          status === "idle" ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        <button
+          type="button"
+          onClick={toggle}
+          tabIndex={status === "idle" ? -1 : 0}
+          aria-label={status === "playing" ? "Pausar audio" : "Reproducir audio"}
+          className="-m-2 p-2 text-neutral-500 hover:text-neutral-950 transition-colors cursor-pointer shrink-0"
+        >
+          {status === "playing" ? (
+            <Pause className="size-4" strokeWidth={1.25} />
+          ) : (
+            <Play className="size-4" strokeWidth={1.25} />
+          )}
+        </button>
+        <div className="relative flex-1 bg-neutral-200 h-px overflow-hidden">
+          <div
+            ref={barRef}
+            className="absolute inset-0 bg-neutral-950 origin-left"
+            style={{ transform: "scaleX(0)" }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

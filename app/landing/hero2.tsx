@@ -32,14 +32,11 @@ const LOOP_TRIM = 0.45;
 
 export function Hero2() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const wasOutOfView = useRef(false);
   const [t, setT] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
-    const section = sectionRef.current;
-    if (!video || !section) return;
+    if (!video) return;
 
     const onTime = () => {
       const d = video.duration;
@@ -52,27 +49,7 @@ export function Hero2() {
       setT(video.currentTime);
     };
     video.addEventListener("timeupdate", onTime);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (wasOutOfView.current) {
-            video.currentTime = 0;
-            video.play();
-            wasOutOfView.current = false;
-          }
-        } else {
-          wasOutOfView.current = true;
-        }
-      },
-      { threshold: 0.4 },
-    );
-
-    observer.observe(section);
-    return () => {
-      video.removeEventListener("timeupdate", onTime);
-      observer.disconnect();
-    };
+    return () => video.removeEventListener("timeupdate", onTime);
   }, []);
 
   const on = ([a, b]: readonly [number, number]) => (t >= a && t <= b ? 1 : 0);
@@ -83,7 +60,7 @@ export function Hero2() {
   const showReady = on(WINDOWS.ready);
 
   return (
-    <section ref={sectionRef} id="hero2" className="bg-white p-2 sm:p-5 md:p-8">
+    <section id="hero2"className="bg-white p-2 sm:p-5 md:p-8">
       <div className="relative">
         <video
           ref={videoRef}

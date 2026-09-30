@@ -78,14 +78,14 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "automata-bots",
-    name: "Automata Bots",
+    name: "Automata",
     category: "Chatbots",
     description:
       "Chatbots que automatizan los procesos repetitivos de tu negocio, de punta a punta",
     tagline:
       "Automatiza los procesos repetitivos de tu negocio, de punta a punta.",
     overview:
-      "Automata Bots son chatbots que conversan con tus clientes en cada canal y se hacen cargo de los procesos repetitivos, de punta a punta. Atienden, responden y resuelven solos, y pasan a una persona cuando de verdad hace falta.",
+      "Automata son chatbots que conversan con tus clientes en cada canal y se hacen cargo de los procesos repetitivos, de punta a punta. Atienden, responden y resuelven solos, y pasan a una persona cuando de verdad hace falta.",
     capabilities: [
       {
         title: "Omnicanal",

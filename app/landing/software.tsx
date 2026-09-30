@@ -1,32 +1,11 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
 } from "@/components/animate-ui/components/radix/tooltip";
 import { PRODUCTS } from "@/app/productos/data";
-
-function ArrowIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="rotate-135"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M5 12h6m3 0h1.5m3 0h.5" />
-      <path d="M5 12l4 4" />
-      <path d="M5 12l4 -4" />
-    </svg>
-  );
-}
 
 export function SoftwareServices() {
   return (
@@ -44,7 +23,7 @@ export function SoftwareServices() {
               className="group relative block py-8 md:py-12 border-b border-neutral-200 w-full cursor-pointer"
             >
               <span className="top-8 md:top-10 right-2 absolute text-neutral-950 opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
-                <ArrowIcon />
+                <ArrowUpRight className="size-6" />
               </span>
               <h3
                 className="pr-14 text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none"

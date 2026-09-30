@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getProduct } from "../data";
 import { CtaCard, ExploreMore, grift } from "../_ui";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { FeatureCards } from "./feature-cards";
 
 const product = getProduct("vox-1")!;
 
@@ -9,30 +10,6 @@ export const metadata: Metadata = {
   title: `${product.name} — Tuinity`,
   description: product.description,
 };
-
-const WAVE = Array.from({ length: 56 });
-
-function TrackWave({ seed }: { seed: number }) {
-  return (
-    <div className="flex items-center gap-[3px] w-full h-10 md:h-14">
-      {WAVE.map((_, i) => {
-        const h = Math.min(
-          100,
-          16 +
-            Math.abs(Math.sin(i * 0.5 + seed) + 0.5 * Math.sin(i * 1.3 + seed * 2)) *
-              62,
-        );
-        return (
-          <span
-            key={i}
-            className="flex-1 bg-neutral-600 group-hover:bg-neutral-300 rounded-full min-w-[2px] transition-colors"
-            style={{ height: `${h}%` }}
-          />
-        );
-      })}
-    </div>
-  );
-}
 
 export default function Vox1Page() {
   return (
@@ -93,36 +70,7 @@ export default function Vox1Page() {
           <p className="mb-6 md:mb-8 text-neutral-500 text-sm md:text-base">
             Features
           </p>
-          <div className="gap-4 md:gap-5 grid sm:grid-cols-2 lg:grid-cols-4">
-            {product.capabilities.map((cap, i) => (
-              <div
-                key={cap.title}
-                className="group relative flex flex-col bg-neutral-950 p-6 md:p-7 min-h-[360px] md:min-h-[420px] text-white"
-                style={{
-                  clipPath:
-                    "polygon(1.75rem 0, 100% 0, 100% 100%, 0 100%, 0 1.75rem)",
-                }}
-              >
-                <div>
-                  <span className="font-mono text-neutral-500 text-xs">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    className="mt-3 text-2xl md:text-[1.7rem] leading-tight"
-                    style={grift}
-                  >
-                    {cap.title}
-                  </h3>
-                </div>
-                <div className="flex flex-1 items-center py-8">
-                  <TrackWave seed={i * 4.7 + 1} />
-                </div>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  {cap.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          <FeatureCards capabilities={product.capabilities} />
         </section>
       </ScrollReveal>
 
